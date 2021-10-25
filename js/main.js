@@ -9,7 +9,7 @@ const products = [
 const renderProduct = (item) => {
     return `<div class="product-item">
                 <h3>${item.title}</h3>
-                <img src="${item.image}" alt="photo">
+                <img class="product-img" src="${item.image}" alt="photo">
                 <p>${item.price}</p>
                 <button class="buy-btn">Купить</button>
             </div>`

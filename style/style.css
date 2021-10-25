@@ -1,0 +1,32 @@
+body {
+  font-family: sans-serif;
+}
+.container {
+  margin: 0 auto;
+}
+
+.products {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+.product-item {
+  background-color: aqua;
+}
+.product-img {
+  width: 100px;
+  height: 100px;
+}
+.buy-price {
+  text-align: center;
+}
+.buy-btn {
+  background-color: brown;
+  border: none;
+  border-radius: 10px;
+}
+.btn-cart {
+  background-color: rgb(116, 100, 79);
+  border: none;
+  border-radius: 20px;
+}

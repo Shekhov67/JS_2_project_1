@@ -80,4 +80,4 @@ class Basket extends ProductsList {
     }
 }
 let basketList = new Basket();
-let list = new ProductsList();
+//let list = new ProductsList();

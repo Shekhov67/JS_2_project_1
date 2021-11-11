@@ -64,20 +64,24 @@ class ProductItem {
                 </div>`
     }
 }
-class Basket extends ProductsList {
+class GoodsList extends ProductsList {
     constructor(sumOrder) {
-        super(sumOrder)
+        super(sumOrder);
         this.showSumOrder();
     }
     showSumOrder() {
         console.log(`Общая сумма товаров: ${this.sumOrder}`);
     }
-    sumItemInBasket() {
 
-    }
-    deleteItem() {
-
+}
+class Basket {
+    constructor() {
+        this.sumItemInBasket();
+        this.deleteItem();
+        this.sumItem();
+        this.openBasket();
+        this.closeBasket();
     }
 }
-let basketList = new Basket();
+let goodsList = new GoodsList();
 //let list = new ProductsList();

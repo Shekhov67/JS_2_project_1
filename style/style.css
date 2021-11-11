@@ -48,6 +48,7 @@ body {
 }
 
 .products {
+    padding-top: 150px;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;

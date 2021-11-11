@@ -30,6 +30,7 @@ class ProductsList {
         this.sumOrder = 0;
         this._fetchProducts();
         this.render();
+        this.showSumOrder();
     }
     _fetchProducts() {
         this.goods = [
@@ -44,8 +45,13 @@ class ProductsList {
         for (let product of this.goods) {
             const item = new ProductItem(product);
             block.insertAdjacentHTML('beforeend', item.render());
-            this.sumOrder += product.price;
         }
+    }
+    showSumOrder() {
+        for (let sumPrice of this.goods) {
+            this.sumOrder += sumPrice.price;
+        }
+        console.log(`Общая сумма товаров: ${this.sumOrder}`);
     }
 }
 class ProductItem {
@@ -64,16 +70,7 @@ class ProductItem {
                 </div>`
     }
 }
-class GoodsList extends ProductsList {
-    constructor(sumOrder) {
-        super(sumOrder);
-        this.showSumOrder();
-    }
-    showSumOrder() {
-        console.log(`Общая сумма товаров: ${this.sumOrder}`);
-    }
 
-}
 class Basket {
     constructor() {
         this.sumItemInBasket();
@@ -83,5 +80,5 @@ class Basket {
         this.closeBasket();
     }
 }
-let goodsList = new GoodsList();
-//let list = new ProductsList();
+
+let list = new ProductsList();

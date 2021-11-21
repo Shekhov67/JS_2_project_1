@@ -24,12 +24,25 @@ body {
 }
 
 .btn-basket {
+    position: relative;
     padding: 15px;
     border: none;
     border-radius: 50px;
     background-color: #f0f0f3;
     box-shadow: 10px 10px 21px #d3d3d6, -10px -10px 21px #fff;
     font-weight: bold;
+}
+
+.basket {
+    display: none;
+    position: absolute;
+    top: 10%;
+    left: 80%;
+    min-width: 200px;
+    background-color: #fdfdfd00;
+    box-shadow: 10px 10px 21px #939394, -10px -10px 21px rgb(190, 190, 190);
+    min-height: 200px;
+    border-radius: 10px;
 }
 
 .btn-basket:hover {

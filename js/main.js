@@ -60,16 +60,29 @@ class ProductItem {
 }
 
 class Basket {
-    constructor(basketContent = '.btn-basket') {
+    constructor(basketContent = '.basket', btnBasket = '.btn_basket') {
         this.basketContent = basketContent;
-        this._openBasket();
-        this.renderBasket();
+        this.btnBasket = btnBasket;
+        this.goodsBasket = [];
+        this._getBasket()
+            .then(data => {
+                this.goodsBasket = data;
+                this._openBasket();
+                this.renderBasket();
+            });
         //this.sumItemInBasket();
         //this.deleteItem();
         //this.sumItem();
     }
+    _getBasket() {
+        return fetch(`${API}/catalogData.json`)
+            .then(result => result.json())
+            .catch(error => {
+                console.log(error);
+            });
+    }
     _openBasket() {
-        let showBasket = document.querySelector(this.basketContent)
+        let showBasket = document.querySelector(this.btnBasket)
         showBasket.addEventListener('click', () => {
             let basket = document.querySelector('.basket');
             basket.style.display = (basket.style.display != 'none') ? 'none' : 'block';
@@ -77,7 +90,7 @@ class Basket {
     }
     renderBasket() {
         let basketBlock = document.querySelector(this.basketContent)
-        for (let items of this.goods) {
+        for (let items of this.goodsBasket) {
             let showItem = new BasketItem(items);
             basketBlock.insertAdjacentHTML('beforeend', showItem.renderBasket());
         }

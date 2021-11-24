@@ -34,15 +34,23 @@ body {
 }
 
 .basket {
-    display: none;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
     position: absolute;
     top: 10%;
     left: 80%;
-    min-width: 200px;
+    padding: 10px 10px 0 10px;
     background-color: #fdfdfd00;
     box-shadow: 10px 10px 21px #939394, -10px -10px 21px rgb(190, 190, 190);
-    min-height: 200px;
     border-radius: 10px;
+}
+
+.basket_product {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
 }
 
 .btn-basket:hover {

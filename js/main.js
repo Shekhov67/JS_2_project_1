@@ -85,7 +85,7 @@ class Basket {
         let showBasket = document.querySelector(this.btnBasket)
         showBasket.addEventListener('click', () => {
             let basket = document.querySelector('.basket');
-            basket.style.display = (basket.style.display != 'none') ? 'none' : 'block';
+            basket.style.visibility = (basket.style.visibility != 'hidden') ? 'hidden' : 'visible';
         });
     }
     renderBasket() {
@@ -103,7 +103,7 @@ class BasketItem {
         this.price = items.price;
     }
     renderBasket() {
-        return `<div class="basket_block">${this.product_name}</div>`
+        return `<div class="basket_product"><div class="basket_name_product">${this.product_name}</div><div class="basket_price_product">${this.price}</div></div>`
     }
 }
 let list = new ProductsList();

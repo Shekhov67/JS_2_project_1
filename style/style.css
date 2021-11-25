@@ -1,10 +1,5 @@
 body {
     font-family: sans-serif;
-    /*background-image: url(../img/back.jpeg.crdownload);*/
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
 }
 
 .container {
@@ -18,8 +13,12 @@ body {
     align-items: center;
 }
 
+.header_block {
+    background-color: #000000;
+}
+
 .header-title {
-    color: rgba(34, 20, 20, 0.76);
+    color: white;
 }
 
 .btn_basket {
@@ -89,7 +88,6 @@ body {
     box-shadow: 0px 10 10px 10px rgba(0, 0, 0, 0.25);
     border-radius: 6px;
     background: #000000;
-    margin: 5px auto;
     position: relative;
     display: block;
     z-index: 200;
@@ -163,6 +161,11 @@ body {
     transition: .5s;
 }
 
+.product-price {
+    font-size: 15px;
+    font-weight: 600;
+}
+
 .buy-btn {
     padding: 5px;
     border: none;
@@ -170,7 +173,7 @@ body {
     background-color: #f1f1f1;
     box-shadow: 10px 10px 21px #d3d3d6, -10px -10px 21px #fff;
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
 
 .buy-btn:hover {

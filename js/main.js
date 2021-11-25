@@ -53,7 +53,7 @@ class ProductItem {
         return `<div class="product-item">
                    <h3>${this.product_name}</h3>
                    <img class="product-img" src="img/noPhoto.jpg" alt="photo">
-                   <p>${this.price}</p>
+                   <p class="product-price">${this.price}</p>
                      <button class="buy-btn">Купить</button>
                 </div>`
     }

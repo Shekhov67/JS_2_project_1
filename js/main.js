@@ -1,6 +1,6 @@
 'use strict';
 const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/'
-
+const APIBASKET = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/'
 class ProductsList {
     constructor(container = '.products') {
         this.container = container;
@@ -66,7 +66,7 @@ class Basket {
         this.goodsBasket = [];
         this._getBasket()
             .then(data => {
-                this.goodsBasket = data;
+                this.goodsBasket = data.contents;
                 this._openBasket();
                 this.renderBasket();
             });
@@ -75,7 +75,7 @@ class Basket {
         //this.sumItem();
     }
     _getBasket() {
-        return fetch(`${API}/catalogData.json`)
+        return fetch(`${APIBASKET}/getBasket.json`)
             .then(result => result.json())
             .catch(error => {
                 console.log(error);
@@ -101,9 +101,13 @@ class BasketItem {
         this.id_product = items.id_product;
         this.product_name = items.product_name;
         this.price = items.price;
+        this.quantity = items.quantity;
     }
     renderBasket() {
-        return `<div class="basket_product"><div class="basket_name_product">${this.product_name}</div><div class="basket_price_product">${this.price}</div></div>`
+        return `<div class="basket_product"><img class="basket-img" src="img/100x100.jpg" alt="photo">
+        <div class="basket_name_product"><h3 class="basket_title">${this.product_name}</h3> <div class="basket_info">Quantity: ${this.quantity}</div>
+        <div class="basket_each"> ${this.price} each</div></div>
+        <div class="basket_price_product">$${this.price} <button class="basket_item_close" type="button"><div class="cl-btn-4"></div></button></div></div>`
     }
 }
 let list = new ProductsList();

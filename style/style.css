@@ -31,17 +31,25 @@ body {
     font-weight: bold;
 }
 
+.btn_basket:hover {
+    transition: .5s;
+    box-shadow: 4px 4px 21px rgb(141 141 141 / 70%), -4px -3px 21px #808088;
+}
+
+.btn_basket:not(hover) {
+    transition: .5s;
+}
+
 .basket {
-    visibility: hidden;
     display: flex;
     flex-direction: column;
     width: 240px;
     position: absolute;
-    top: 100px;
-    left: 80%;
+    top: 90px;
+    right: 190px;
     padding: 10px 10px 0 10px;
     background-color: #fdfdfd00;
-    box-shadow: 10px 10px 21px #939394, -10px -10px 21px rgb(190, 190, 190);
+    box-shadow: -2px -7px 21px #939394, 4px 6px 21px rgb(190 190 190);
     border-radius: 10px;
 }
 

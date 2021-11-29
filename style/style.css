@@ -31,6 +31,10 @@ body {
     font-weight: bold;
 }
 
+.invisible {
+    visibility: hidden;
+}
+
 .btn_basket:hover {
     transition: .5s;
     box-shadow: 4px 4px 21px rgb(141 141 141 / 70%), -4px -3px 21px #808088;

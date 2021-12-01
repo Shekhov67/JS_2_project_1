@@ -151,7 +151,32 @@ class Cart extends List { //Список товаров корзины(пото�
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////
-class CartItem extends Item {} // товар корзины(потомок класса товар)
+class CartItem extends Item { // товар корзины(потомок класса товар)
+    constructor(el, img = 'https://via.placeholder.com/50x100') {
+        super(el, img);
+        this.quantity = el.quantity;
+    }
+    render() {
+        return `
+        <div class="cart-item" data-id="${this.id_product}">
+        <div class="product-bio">
+            <img src="${this.img}" alt="Photo">
+            <div class="product-desc">
+                <p class="product-title">${this.product_name}</p>q
+                <p class="product-quantity">Quantity: ${this.quantity}</p>
+                <p class="product-single-price">$${this.price}each</p>
+            </div>
+        </div>
+        <div class="right-block">
+            <p class="product-price">$${this.quantity*this.price}</p>
+            <button class="del-btn" data-id="${this.id_product}">&times;</button>
+        </div>
+    </div>
+`
+    }
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
 const list2 = {
     ProductsList: ProductItem, //Каталог:Товар каталога
     Cart: CartItem //Корзина:Товар корзины

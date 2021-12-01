@@ -1,5 +1,5 @@
 'use strict';
-const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/';
+const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/'; //откуда берем данный для каталога
 
 class List { //это класс список
     constructor(url, container, list = list2) {
@@ -17,7 +17,7 @@ class List { //это класс список
                 console.log(error);
             })
     }
-    handleData() {
+    handleData(data) {
         this.goods = data;
         this.render();
     }

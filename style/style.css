@@ -14,11 +14,42 @@ body {
 }
 
 header {
-    display: flex;
-    justify-content: space-around;
+    background-color: black;
+    margin-bottom: 150px;
 }
+
+.header-title {
+    padding: 10px 0 10px 0;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+}
+
+.header-title {}
 
 .products {
     display: flex;
     justify-content: space-around;
+}
+
+.cart-item {}
+
+.cart-block {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    position: absolute;
+}
+
+.btn-cart {
+    position: relative;
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
 }

@@ -104,7 +104,7 @@ class Cart extends List { //Список товаров корзины(пото�
                         let product = {
                             id_product: productId,
                             price: +element.dataset['price'],
-                            product_name: +element.dataset['name'],
+                            product_name: element.dataset['name'],
                             quantity: 1
                         };
                         this.goods = [product];
@@ -162,7 +162,7 @@ class CartItem extends Item { // товар корзины(потомок кла
         <div class="product-bio">
             <img src="${this.img}" alt="Photo">
             <div class="product-desc">
-                <p class="product-title">${this.product_name}</p>q
+                <p class="product-title">${this.product_name}</p>
                 <p class="product-quantity">Quantity: ${this.quantity}</p>
                 <p class="product-single-price">$${this.price}each</p>
             </div>

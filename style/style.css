@@ -1,12 +1,22 @@
+/*обнуление*/
+
+*,
+*:before,
+*:after {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: sans-serif;
-    box-sizing: border-box;
-    margin: 0;
 }
 
 .container {
-    width: 1280px;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 0 15px;
 }
 
 .invisible {
@@ -37,6 +47,7 @@ header {
 
 .cart-item {
     display: flex;
+    align-items: center;
 }
 
 .cart-item:nth-last-of-type(2n) {
@@ -61,6 +72,13 @@ header {
     margin-right: 40px;
 }
 
+.product-desc {
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .btn-cart {
     position: relative;
     padding: 8px;
@@ -74,4 +92,40 @@ header {
     border-radius: 5px;
     padding: 5px;
     text-align: center;
+}
+
+@media(max-width:1200px) {
+    .container {
+        max-width: 970px;
+    }
+    .cart-item {
+        font-size: 15px;
+    }
+    .product-item {
+        font-size: 15px;
+    }
+}
+
+@media(max-width:992px) {
+    .container {
+        max-width: 750px;
+    }
+    .cart-item {
+        font-size: 20px;
+    }
+    .product-item {
+        font-size: 20px;
+    }
+}
+
+@media(max-width:767px) {
+    .container {
+        max-width: none;
+    }
+    .cart-item {
+        font-size: 25px;
+    }
+    .product-item {
+        font-size: 25px;
+    }
 }

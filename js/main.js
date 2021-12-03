@@ -136,7 +136,7 @@ class Cart extends List { //Список товаров корзины(пото�
     _updateCart(product) {
         let block = document.querySelector(`.cart-item[data-id="${product.id_product}"]`);
         block.querySelector('.product-quantity').textContent = `Quantity: ${product.quantity}`;
-        block.querySelector('.product-price').textContent = `Quantity: ${product.quantity*product.price}`;
+        block.querySelector('.product-price').textContent = `$${product.quantity*product.price}`;
     }
     _init() {
         document.querySelector('.btn-cart').addEventListener('click', () => {
@@ -164,7 +164,7 @@ class CartItem extends Item { // товар корзины(потомок кла
             <div class="product-desc">
                 <p class="product-title">${this.product_name}</p>
                 <p class="product-quantity">Quantity: ${this.quantity}</p>
-                <p class="product-single-price">$${this.price}each</p>
+                <p class="product-single-price">$${this.price} each</p>
             </div>
         </div>
         <div class="right-block">

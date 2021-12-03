@@ -35,7 +35,21 @@ class List { //это класс список
             block.insertAdjacentHTML('beforeend', productObj.render());
         }
     }
-    _init() {}
+    filter(value) {
+        const regExp = new RegExp(value, 'i');
+        this.filtered = this.allProducts.filter(product => regExp.test(product.product_name));
+        this.allProducts.forEach(el => {
+            const good = document.querySelector(`.product-item[data-id="${el.id_product}"]`);
+            if (!this.filtered.includes(el)) { //если в массиве  фильтр отсутствует расматриваемый товар
+                good.classList.add('invisible') //скрываем товар которого нет в массиве
+            } else {
+                good.classList.remove('invisible');
+            }
+        })
+    }
+    _init() {
+        return false
+    }
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -73,6 +87,10 @@ class ProductsList extends List { //это класс каталог(потом�
                 this.cart.addProduct(e.target);
             }
         });
+        document.querySelector('.search-form').addEventListener('submit', e => {
+            e.preventDefault();
+            this.filter(document.querySelector('.search-field').value)
+        })
     }
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -190,3 +208,18 @@ let products = new ProductsList(cart);
 методы другого класса,то удобнее всего в конструктор передать объект класса, методы
 которого нам нужны в данном классе
 products.getJson(`getProducts.json`).then(data=> products.handleData(data));*/
+
+
+
+//Логика данного скрипта
+//class A {
+//    f(obj){
+//        g(obj);
+//    }
+//}
+//class B {
+//    g();
+//}
+//let a = new A();
+//let b = new B();
+//a.f(b);

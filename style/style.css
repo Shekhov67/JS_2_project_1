@@ -28,6 +28,30 @@ header {
     margin-bottom: 150px;
 }
 
+.fas {
+    background-color: rgb(0, 0, 0);
+    font-size: 20px;
+    color: white;
+}
+
+.btn-search {
+    background-color: rgb(0, 0, 0);
+    margin-right: 10px;
+}
+
+.search-field {
+    background-color: black;
+    border: none;
+    border-bottom: 2px solid white;
+}
+
+.search-field:focus {
+    background-color: white;
+    border-radius: 4px;
+    outline: none;
+    padding: 5px;
+}
+
 .header-title {
     padding: 10px 0 10px 0;
     display: flex;
@@ -43,6 +67,11 @@ header {
 .products {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.cart {
+    display: flex;
 }
 
 .cart-item {
@@ -85,6 +114,22 @@ header {
     border: none;
     border-radius: 8px;
     font-weight: bold;
+}
+
+.buy-btn {
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.buy-btn:hover {
+    transition: .5s;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    ;
+}
+
+.buy-btn:not(hover) {
+    transition: .5s;
+    ;
 }
 
 .product-item {

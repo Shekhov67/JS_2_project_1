@@ -9,28 +9,40 @@
 </head>
 
 <body>
-    <header>
-        <div class="header-title container">
-            <div class="logo">
-                <h1>Интернет магазин</h1>
-            </div>
-            <div class="cart">
-                <form action="#" class="search-form">
-                    <input type="text" class="search-field">
-                    <button class="btn-search" type="submit">
+    <div id="app">
+        <header>
+            <div class="header-title container">
+                <div class="logo">
+                    <h1>Интернет магазин</h1>
+                </div>
+                <div class="cart">
+                    <form action="#" class="search-form">
+                        <input type="text" class="search-field" v-model='userSearch'>
+                        <button class="btn-search" type="submit" @click='filter()'>
                         <i class="fas fa-search"></i>
                     </button>
-                </form>
-                <button class="btn-cart" type="button">Корзина</button>
-                <div class="cart-block invisible"></div>
+                    </form>
+                    <button class="btn-cart" @click='show=!show' type="button">Корзина</button>
+                    <div class="cart-block" v-show='show'>
+                    </div>
+                </div>
             </div>
-        </div>
-    </header>
-    <main>
-        <div class="products ">
-        </div>
-    </main>
+        </header>
+        <main>
+            <div class="products">
+                <div class='product-item' v-for='product of filtered' :key='product.id_product'>
+                    <img :src="imgCatalog" alt='Photo'>
+                    <div class="desc">
+                        <h3>{{ product.product_name }}</h3>
+                        <p>{{ product.price }} $</p>
+                        <button class="buy-btn" @click='addProduct(product)'>Купить</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
     <script defer src="https://kit.fontawesome.com/ad2eb1587e.js" crossorigin="anonymous"></script>
+    <script src="js/vue.js"></script>
     <script src='js/main.js '></script>
 </body>
 

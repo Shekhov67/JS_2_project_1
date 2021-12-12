@@ -34,22 +34,11 @@ const app = new Vue({
             .then(data => {
                 for (let el of data) {
                     this.products.push(el)
-
+                    this.filtered.push(el)
                 }
             })
     }
 })
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -138,10 +138,11 @@ header {
 .product-item {
     border-radius: 5px;
     text-align: center;
+    background-color: rgba(236, 236, 236, 0.349);
 }
 
-.desc {
-    border: 1px solid #000;
+.desc-info {
+    margin-bottom: 15px;
 }
 
 @media(max-width:1200px) {

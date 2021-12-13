@@ -1,43 +1,83 @@
 'use strict';
-const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/'; //откуда берем данный для каталога
+const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses'; //откуда берем данный для каталога
 ////////////////////////////////////////////////////////////VUE//////////////////////////////////////////////////////////////////////////////////////////
 const app = new Vue({
     el: '#app',
     data: {
-        catalogUrl: '/catalogData.json',
-        products: [],
-        filtered: [],
-        imgCatalog: 'https://via.placeholder.com/200x150',
-        cartCatalog: 'https://via.placeholder.com/50x100',
         userSearch: '',
-        show: false,
+        showCart: false,
+        catalogUrl: '/catalogData.json',
+        cartUrl: '/getBasket.json',
+        cartItems: [],
+        filtered: [],
+        imgCart: 'https://via.placeholder.com/50x100',
+        products: [],
+        imgCatalog: 'https://via.placeholder.com/200x150',
     },
     methods: {
-        filter() {
-            const regExp = new RegExp(this.userSearch, 'i');
-            this.filtered = this.products.filter(product => regExp.test(product.product_name));
-            console.log(this.filtered)
-        },
-        getJson(url) {
+        getJson(url) { // 2.ПРОМИС переводит наши полученные данные в обьект джава скрипт
             return fetch(url)
                 .then(result => result.json())
                 .catch(error => {
-                    console.log(error);
+                    console.log("error");
                 })
         },
-        addProduct(product) {
-            console.log(product)
+        addProduct(item) {
+            this.getJson(`${API}/addToBasket.json`)
+                .then(data => {
+                    if (data.result === 1) {
+                        let find = this.cartItems.find(el => el.id_product === item.id_product); //метод find вернет первый елемент
+                        if (find) { //и если он есть тогда прибавим количестово 
+                            find.quantity++;
+                        } else { //иначе
+                            const prod = Object.assign({ quantity: 1 }, item); //Создание нового объекта на основе двух, указанных в параметрах
+                            this.cartItems.push(prod); //с помощью Object.assign можно соедитнить два объекта в один
+                        }
+                    }
+                })
+        },
+        remove(item) {
+            this.getJson(`${API}/addToBasket.json`)
+                .then(data => {
+                    if (data.result === 1) {
+                        if (item.quantity > 1) {
+                            item.quantity--;
+                        } else {
+                            this.cartItems.splice(this.cartItems.indexOf(item), 1) //из массива удаляем товары(ищем с какого индекса удаляем товары, в каком количестве ) 
+                        }
+                    }
+                })
+        },
+        filter() {
+            const regExp = new RegExp(this.userSearch, 'i');
+            this.filtered = this.products.filter(product => regExp.test(product.product_name));
+
         }
     },
-    mounted() {
-        this.getJson(`${API + this.catalogUrl}`)
+    mounted() { //1. первоначально все массивы пустые и мы их наполняем данными
+        this.getJson(`${API + this.cartUrl}`) //1 сначала парсим товары для корзины и работаем с нашим промисом 2
             .then(data => {
-                for (let el of data) {
-                    this.products.push(el)
-                    this.filtered.push(el)
+                for (let item of data.contents) {
+                    this.cartItems.push(item)
                 }
             })
-    }
+        this.getJson(`${API + this.catalogUrl}`)
+            .then(data => {
+                for (let item of data) {
+                    this.$data.products.push(item) //$data это всегда обращение к дата свойствам
+                    this.$data.filtered.push(item)
+
+                }
+            })
+
+        //    this.getJson(`getProduct.json`) //парсим локальный файл
+        //        .then(data => {
+        //            for (let item of data) {
+        //                this.products.push(item)
+        //                this.filtered.push(item)
+        //            }
+        //        })
+    },
 })
 
 
@@ -54,7 +94,8 @@ const app = new Vue({
 //        this._init();
 //    }
 //    getJson(url) {
-//        return fetch(url ? url : `${API +this.url}`)
+//        return fetch(url ? url : `
+//$ { API + this.url }`)
 //            .then(result => result.json())
 //            .catch(error => {
 //                console.log(error);
@@ -82,7 +123,7 @@ const app = new Vue({
 //        const regExp = new RegExp(value, 'i');
 //        this.filtered = this.allProducts.filter(product => regExp.test(product.product_name));
 //        this.allProducts.forEach(el => {
-//            const good = document.querySelector(`.product-item[data-id="${el.id_product}"]`);
+//           const good = document.querySelector(`.product - item[data - id = "${el.id_product}"]`);
 //            if (!this.filtered.includes(el)) { //если в массиве  фильтр отсутствует расматриваемый товар
 //                good.classList.add('invisible') //скрываем товар которого нет в массиве
 //            } else {
@@ -104,7 +145,8 @@ const app = new Vue({
 //        this.img = img;
 //    }
 //    render() { //генерация товара для каталога товаров
-//        return `<div class='product-item' data-id='${this.id_product}'>
+//return `< div class = 'product-item'
+//data - id = '${this.id_product}' >
 //        <img src="${this.img}" alt='Photo'>
 //        <div class="desc">
 //            <h3>${this.product_name}</h3>

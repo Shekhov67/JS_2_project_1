@@ -136,10 +136,12 @@ header {
 }
 
 .product-item {
-    background-color: rgba(204, 204, 204, 0.582);
     border-radius: 5px;
-    padding: 5px;
     text-align: center;
+}
+
+.desc {
+    border: 1px solid #000;
 }
 
 @media(max-width:1200px) {

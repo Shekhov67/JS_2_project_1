@@ -16,14 +16,30 @@
                     <h1>Интернет магазин</h1>
                 </div>
                 <div class="cart">
-                    <form action="#" class="search-form">
+                    <form action="#" class="search-form" @submit.prevent='filter'>
+                        <!-- вместо перегрузки страницы будет выполнятся функция фильтр-->
                         <input type="text" class="search-field" v-model='userSearch'>
                         <button class="btn-search" type="submit" @click='filter()'>
                         <i class="fas fa-search"></i>
                     </button>
                     </form>
-                    <button class="btn-cart" @click='show=!show' type="button">Корзина</button>
-                    <div class="cart-block" v-show='show'>
+                    <button class="btn-cart" @click='showCart=!showCart' type="button">Корзина</button>
+                    <div class="cart-block" v-show='showCart'>
+                        <p v-if="!cartItems.length">Корзина пуста</p>
+                        <div class="cart-item" v-for='item of cartItems' :key='item.id_product'>
+                            <div class="product-bio">
+                                <img :src="imgCart" alt="Photo">
+                                <div class="product-desc">
+                                    <p class="product-title">{{ item.product_name }}</p>
+                                    <p class="product-quantity">Quantity: {{ item.quantity }}</p>
+                                    <p class="product-single-price">$ {{ item.price }} each</p>
+                                </div>
+                            </div>
+                            <div class="right-block">
+                                <p class="product-price">$ {{ item.quantity*item.price}}</p>
+                                <button class="del-btn" @click='remove(item)'>&times;</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

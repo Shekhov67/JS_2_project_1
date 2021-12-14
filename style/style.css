@@ -14,10 +14,16 @@ body {
 }
 
 .error {
+    z-index: 1;
     background-color: red;
-    margin: 0 auto;
+    height: 100vh;
     text-align: center;
-    width: 200px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    width: 100vw;
 }
 
 .container {

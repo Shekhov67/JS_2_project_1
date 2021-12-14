@@ -20,7 +20,10 @@ const app = new Vue({
             return fetch(url)
                 .then(result => result.json())
                 .catch(error => {
-                    console.log("error");
+                    if (error) {
+                        this.error = true;
+                        console.log('error')
+                    }
                 })
         },
         addProduct(item) {

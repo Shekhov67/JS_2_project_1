@@ -12,7 +12,8 @@ const app = new Vue({
         filtered: [],
         imgCart: 'https://via.placeholder.com/50x100',
         products: [],
-        imgCatalog: 'https://via.placeholder.com/200x150',
+        imgProduct: 'https://via.placeholder.com/200x150',
+        error: false,
     },
     methods: {
         getJson(url) { // 2.ПРОМИС переводит наши полученные данные в обьект джава скрипт

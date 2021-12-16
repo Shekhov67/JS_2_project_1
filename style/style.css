@@ -118,18 +118,27 @@ header {
     border-radius: 8px;
 }
 
+.del-btn {
+    font-size: 20px;
+    background-color: black;
+    color: wheat;
+    border-radius: 5px;
+    padding: 5px;
+    width: 30px;
+}
+
+
+}
 .product-bio {
     display: flex;
     margin-right: 40px;
 }
-
 .product-desc {
     margin-left: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-
 .btn-cart {
     position: relative;
     padding: 8px;
@@ -137,64 +146,62 @@ header {
     border-radius: 8px;
     font-weight: bold;
 }
-
 .buy-btn {
     padding: 5px;
     border-radius: 10px;
 }
-
 .buy-btn:hover {
     transition: .5s;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     ;
 }
-
 .buy-btn:not(hover) {
     transition: .5s;
     ;
 }
-
 .product-item {
     border-radius: 5px;
     text-align: center;
     background-color: rgba(236, 236, 236, 0.349);
 }
-
 .desc-info {
     margin-bottom: 15px;
 }
-
 @media(max-width:1200px) {
     .container {
         max-width: 970px;
     }
+    
     .cart-item {
         font-size: 15px;
     }
+    
     .product-item {
         font-size: 15px;
     }
 }
-
 @media(max-width:992px) {
     .container {
         max-width: 750px;
     }
+    
     .cart-item {
         font-size: 20px;
     }
+    
     .product-item {
         font-size: 20px;
     }
 }
-
 @media(max-width:767px) {
     .container {
         max-width: none;
     }
+    
     .cart-item {
         font-size: 25px;
     }
+    
     .product-item {
         font-size: 25px;
     }

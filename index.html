@@ -25,7 +25,7 @@
                         <i class="fas fa-search"></i></button>
                     </form>-->
                     <button class="btn-cart" @click='showCart=!showCart' type="button">Корзина</button>
-                    <cart :cartItem='cartItems' :img='imgCart' :visibility='showCart'></cart>
+                    <cart :cart-items='cartItems' :img='imgCart' :visibility='showCart'></cart>
                     <!--<div class="cart-block" v-show='showCart'>
                         <p v-if="!cartItems.length">Корзина пуста</p>
                         <div class="cart-item" v-for='item of cartItems' :key='item.id_product'>

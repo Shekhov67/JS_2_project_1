@@ -62,7 +62,7 @@ const app = new Vue({
         this.getJson(`${API + this.cartUrl}`) //1 сначала парсим товары для корзины и работаем с нашим промисом 2
             .then(data => {
                 for (let item of data.contents) {
-                    this.cartItems.push(item)
+                    this.$data.cartItems.push(item)
                 }
             })
         this.getJson(`${API + this.catalogUrl}`)

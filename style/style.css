@@ -99,6 +99,7 @@ header {
 .cart-item {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .cart-item:nth-last-of-type(2n) {
@@ -107,38 +108,60 @@ header {
 
 .cart-block {
     flex-direction: column;
-    border: 1px solid black;
+    border: 1px solid #00000063;
     background-color: rgb(255, 255, 255);
     position: absolute;
     min-width: 150px;
-    top: 100px;
-    right: 50px;
-    width: auto;
+    top: 80px;
+    right: 0px;
     padding: 5px;
     border-radius: 8px;
+}
+
+.cart-block:after {
+    content: " ";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 0 solid transparent;
+    border-right-width: 18px;
+    border-left-width: 16px;
+    border-bottom: 27px solid rgb(255, 255, 255);
+    top: -16px;
+    right: 6px;
 }
 
 .del-btn {
     font-size: 20px;
     background-color: black;
-    color: wheat;
+    color: rgb(255, 255, 255);
     border-radius: 5px;
     padding: 5px;
     width: 30px;
 }
 
-
+.del-btn:hover {
+    color: black;
+    background-color: white;
+    transition: .5s;
 }
+
+.del-btn:not(hover) {
+    transition: .5s;
+}
+
 .product-bio {
     display: flex;
     margin-right: 40px;
 }
+
 .product-desc {
     margin-left: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
+
 .btn-cart {
     position: relative;
     padding: 8px;
@@ -146,62 +169,66 @@ header {
     border-radius: 8px;
     font-weight: bold;
 }
+
 .buy-btn {
     padding: 5px;
-    border-radius: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
+
 .buy-btn:hover {
     transition: .5s;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    ;
+    background-color: black;
+    color: white;
 }
+
 .buy-btn:not(hover) {
     transition: .5s;
     ;
 }
+
 .product-item {
     border-radius: 5px;
     text-align: center;
     background-color: rgba(236, 236, 236, 0.349);
 }
+
 .desc-info {
     margin-bottom: 15px;
 }
+
 @media(max-width:1200px) {
     .container {
         max-width: 970px;
     }
-    
     .cart-item {
         font-size: 15px;
     }
-    
     .product-item {
         font-size: 15px;
     }
 }
+
 @media(max-width:992px) {
     .container {
         max-width: 750px;
     }
-    
     .cart-item {
         font-size: 20px;
     }
-    
     .product-item {
         font-size: 20px;
     }
 }
+
 @media(max-width:767px) {
     .container {
         max-width: none;
     }
-    
     .cart-item {
         font-size: 25px;
     }
-    
     .product-item {
         font-size: 25px;
     }
